@@ -1,21 +1,69 @@
 version: '3'
 
+# services:
+#   backend:
+#     build: ./backend
+#     ports:
+#       - "3001:3000"
+#     env_file:
+#       - .env
+#     depends_on:
+#       - database
+
+#   database:
+#     image: mongo
+#     ports:
+#       - "27017:27017"
+#     volumes:
+#       - mongo-data:/data/db
+
+# volumes:
+#   mongo-data:
+# services:
+#   frontend:
+#     build: ./frontend
+#     ports:
+#       - "3000:3000"
+#     depends_on:
+#       - backend
+
+#   backend:
+#     build: ./backend
+#     ports:
+#       - "3001:3000"
+#     environment:
+#       - MONGO_URI=mongodb://database:27017/devopsdb
+#     depends_on:
+#       - database
+
+#   database:
+#     image: mongo
+#     ports:
+#       - "27017:27017"
 services:
+  nginx:
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - frontend
+      - backend
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+
   backend:
     build: ./backend
     ports:
       - "3001:3000"
-    env_file:
-      - .env
-    depends_on:
-      - database
+    environment:
+      - MONGO_URI=mongodb://database:27017/devopsdb
 
   database:
     image: mongo
     ports:
       - "27017:27017"
-    volumes:
-      - mongo-data:/data/db
-
-volumes:
-  mongo-data:
