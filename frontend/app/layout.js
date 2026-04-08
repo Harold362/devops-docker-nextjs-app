@@ -2,8 +2,8 @@ import "./globals.css";
 import Navbar from "../components/Navbar";
 
 export const metadata = {
-  title: "Mi App",
-  description: "App con Login y Dashboard",
+  title: "APP WASHING TO SHOES",
+  description: "APP WITH LOGIN AND DASHBOARD",
 };
 
 export default function RootLayout({ children }) {
