@@ -3,7 +3,7 @@ export default function Home() {
   return (
     <div style={styles.container}>
       <div style={styles.card}>
-        <h1>Bienvenido</h1>
+        <h1>¡¡¡BIENVENIDO!!!</h1>
         <p>Esta es mi aplicación Fullstack con Docker</p>
       </div>
     </div>
