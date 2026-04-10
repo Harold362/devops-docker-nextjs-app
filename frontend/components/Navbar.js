@@ -11,7 +11,7 @@ export default function Navbar() {
 
   return (
     <div style={styles.navbar}>
-      <h2 style={styles.logo}>Mi App</h2>
+      <h2 style={styles.logo}>WASHING to SHOES</h2>
 
       <div>
         <button style={styles.btn} onClick={() => router.push("/")}>
